@@ -1,11 +1,7 @@
-import { Button, Col, Modal, Row } from 'antd';
+import { Button, Modal, Row } from 'antd';
 import 'antd/dist/antd.css';
 import { useState } from 'react';
-import { PricingCard } from './components/PricingCard';
-import {
-  basicPricingCard,
-  proPricingCard,
-} from './components/PricingCard/data.js';
+import { CustomizingPlan } from './components/CustomizingPlan';
 
 function App() {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -35,12 +31,13 @@ function App() {
             justifyContent: 'space-between',
           }}
         >
-          <Col span={12}>
+          {/* <Col span={12}>
             <PricingCard {...basicPricingCard} />
           </Col>
           <Col span={12}>
             <PricingCard {...proPricingCard} />
-          </Col>
+          </Col> */}
+          <CustomizingPlan />
         </Row>
       </Modal>
     </>
