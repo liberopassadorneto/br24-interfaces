@@ -1,12 +1,20 @@
-import { Col, Divider, Radio as AntdRadio, Row, Typography } from 'antd';
+import { Col, Divider, Radio as AntdRadio, Row } from 'antd';
 import {
+  CancelButton,
+  CancelButtonLabel,
+  ConfirmButton,
+  ConfirmButtonLabel,
+  CounterButton,
+  CounterNumber,
   InfoTitle,
+  IntegratorLabel,
   PlanDescription,
   PlanTitle,
   Radio,
   RadioInfo,
   RadioLabel,
   RadioOffer,
+  TotalAmount,
 } from './styles';
 
 export function CustomizingPlan() {
@@ -26,37 +34,42 @@ export function CustomizingPlan() {
         </Row>
       </Col>
 
-      <Divider className="my-2" />
+      <Divider className="mt-0 mb-2" />
 
       <Col>
-        <Row gutter={[0, 8]}>
+        <Row gutter={[0, 16]}>
           <Col>
             <InfoTitle>Billing Period</InfoTitle>
           </Col>
 
           <Col>
             <AntdRadio.Group className="d-flex flex-column">
-              <Row type="flex" align="middle">
-                <Col span={12}>
-                  <Radio value={1}>
-                    <RadioLabel>Pay Monthly</RadioLabel>
-                  </Radio>
+              <Row gutter={[0, 8]}>
+                <Col>
+                  <Row type="flex" align="middle">
+                    <Col span={12}>
+                      <Radio value={1}>
+                        <RadioLabel>Pay Monthly</RadioLabel>
+                      </Radio>
+                    </Col>
+                    <Col span={12}>
+                      <RadioInfo>$45 month</RadioInfo>
+                    </Col>
+                  </Row>
                 </Col>
-                <Col span={12}>
-                  <RadioInfo>$45 month</RadioInfo>
-                </Col>
-              </Row>
-
-              <Row type="flex" align="middle">
-                <Col span={12}>
-                  <Radio value={2}>
-                    <RadioLabel>Pay Annually</RadioLabel>
-                  </Radio>
-                </Col>
-                <Col span={12}>
-                  <RadioInfo>
-                    $450 <RadioOffer>w/ 2 month free</RadioOffer>
-                  </RadioInfo>
+                <Col>
+                  <Row type="flex" align="middle">
+                    <Col span={12}>
+                      <Radio value={2}>
+                        <RadioLabel>Pay Annually</RadioLabel>
+                      </Radio>
+                    </Col>
+                    <Col span={12}>
+                      <RadioInfo>
+                        $450 <RadioOffer>~ 2 months free</RadioOffer>
+                      </RadioInfo>
+                    </Col>
+                  </Row>
                 </Col>
               </Row>
             </AntdRadio.Group>
@@ -65,38 +78,65 @@ export function CustomizingPlan() {
       </Col>
 
       <Col>
-        <Col>
-          <InfoTitle>Additional Numbers</InfoTitle>
-        </Col>
-        <Col>
-          <Row>
-            <Col span={12}>Br24's Integrator</Col>
-            <Col span={12}>3</Col>
-          </Row>
-          <Row>
-            <Col span={12}>Oficial API</Col>
-            <Col span={12}>2</Col>
-          </Row>
-        </Col>
+        <Row gutter={[0, 16]}>
+          <Col>
+            <InfoTitle>Additional Numbers</InfoTitle>
+          </Col>
+          <Col>
+            <Row gutter={[0, 16]}>
+              <Col>
+                <Row>
+                  <Col span={12}>
+                    <IntegratorLabel>Br24's Integrator</IntegratorLabel>
+                  </Col>
+                  <Col span={12}>
+                    <CounterButton icon="plus" />
+                    <CounterNumber className="mx-4">3</CounterNumber>
+                    <CounterButton icon="minus" />
+                  </Col>
+                </Row>
+              </Col>
+              <Col>
+                <Row>
+                  <Col span={12}>
+                    <IntegratorLabel>API Oficial</IntegratorLabel>
+                  </Col>
+
+                  <Col span={12}>
+                    <CounterButton icon="plus" />
+                    <CounterNumber className="mx-4">2</CounterNumber>
+                    <CounterButton icon="minus" />
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
       </Col>
 
-      <Col>
-        <Row>
+      <Col className="my-3">
+        <Row type="flex" align="middle">
           <Col span={12}>
             <InfoTitle>Total</InfoTitle>
           </Col>
           <Col span={12}>
-            <Typography.Text style={{ fontSize: '12px' }}>
-              $129.00 per month
-            </Typography.Text>
+            <TotalAmount>$129.00</TotalAmount>
           </Col>
         </Row>
       </Col>
 
       <Col>
         <Row>
-          <Col span={12}>CANCEL</Col>
-          <Col span={12}>CONFIRM</Col>
+          <Col span={12}>
+            <CancelButton>
+              <CancelButtonLabel>Cancel</CancelButtonLabel>
+            </CancelButton>
+          </Col>
+          <Col span={12}>
+            <ConfirmButton>
+              <ConfirmButtonLabel>Confirm</ConfirmButtonLabel>
+            </ConfirmButton>
+          </Col>
         </Row>
       </Col>
     </Row>
